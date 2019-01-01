@@ -29,6 +29,7 @@ namespace Hazel {
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);
 		if (it != m_Layers.end())
 		{
+			delete *it;
 			m_Layers.erase(it);
 			m_LayerInsert--;
 		}
@@ -38,7 +39,10 @@ namespace Hazel {
 	{
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), overlay);
 		if (it != m_Layers.end())
+		{
+			delete *it;
 			m_Layers.erase(it);
+		}
 	}
 
 }
